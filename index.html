@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css"></link>
+		<link href="bower_components/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" type="text/css"></link>
+
+		<script src="bower_components/jquery/dist/jquery.js"></script>
+		<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+		<script src="bower_components/react/react.js"></script>
+		<script src="bower_components/react/JSXTransformer.js"></script>
+
+		<script src="js/main.js"></script>
+		<script type="text/jsx" src="js/main_view.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<h1>Web Crawler</h1>
+			<div class="row">
+				<div class="col-xs-6">
+					<div class="input-group">
+						<input type="text" id="url" class="form-control" placeholder="copy url here">
+						<span class="input-group-btn">
+							<button id="crawl" class="btn btn-default">Crawl</button>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			$(document).ready(function(){
+				$("#crawl").click(function(){
+					var url = $("#url").val();
+					var loader = new Loader(url,{
+						onload:function(){
+							alert('loaded');
+						}
+					});
+				});		
+			});
+		</script>
+	</body>
+</html>
